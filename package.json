@@ -1,0 +1,24 @@
+{
+  "name": "prueba-backend-mims",
+  "version": "1.0.0",
+  "description": "Prueba de backend para mims tech corps",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaulSierradev/prueba-backend-mims.git"
+  },
+  "author": "RaulSierradev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RaulSierradev/prueba-backend-mims/issues"
+  },
+  "homepage": "https://github.com/RaulSierradev/prueba-backend-mims#readme",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3"
+  }
+}
