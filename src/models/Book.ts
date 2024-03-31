@@ -1,21 +1,26 @@
-import { Table, Column, Model, DataType } from "sequelize-typescript";
+import { DataTypes } from "sequelize";
+import db from "../config/bd";
 
-@Table({
-  tableName: "books",
-})
-class Book extends Model {
-  @Column({
-    type: DataType.TEXT,
-  })
-  name: String;
-  @Column({
-    type: DataType.TEXT,
-  })
-  email: String;
-  @Column({
-    type: DataType.TEXT,
-  })
-  password: String;
-}
+const Book = db.define("books", {
+  id: {
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
+    allowNull: false,
+    primaryKey: true,
+  },
+
+  title: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  author: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  publicationYear: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+});
 
 export default Book;

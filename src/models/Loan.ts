@@ -1,21 +1,25 @@
-import { Table, Column, Model, DataType } from "sequelize-typescript";
+import { DataTypes } from "sequelize";
+import db from "../config/bd";
 
-@Table({
-  tableName: "loans",
-})
-class Loan extends Model {
-  @Column({
-    type: DataType.TEXT,
-  })
-  userId: String;
-  @Column({
-    type: DataType.TEXT,
-  })
-  bookId: String;
-  @Column({
-    type: DataType.TEXT,
-  })
-  loanDate: String;
-}
+const Loan = db.define("loans", {
+  id: {
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
+    allowNull: false,
+    primaryKey: true,
+  },
+  userId: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  bookId: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  loanDate: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+});
 
 export default Loan;

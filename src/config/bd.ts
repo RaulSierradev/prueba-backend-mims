@@ -6,7 +6,6 @@ const db = new Sequelize(
   // URL
   `postgres://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}`,
   {
-    models: [__dirname + "/../models/**/*.ts"],
     logging: false,
     native: false,
   }

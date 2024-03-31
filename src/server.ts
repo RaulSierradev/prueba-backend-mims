@@ -3,6 +3,7 @@ import "dotenv/config";
 import morgan from "morgan";
 
 import db from "./config/bd";
+import bookRouter from "./routes/book.routes";
 
 async function connectDB() {
   try {
@@ -13,11 +14,9 @@ async function connectDB() {
     console.log("Error de conexión a la BD", error.message);
   }
 }
-connectDB()
+connectDB();
 
 const server = express();
-
-server.use(morgan("dev"));
 
 server.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -30,8 +29,10 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use("/", (req, res) => {
-  res.send("Hola");
-});
+server.use(morgan("dev"));
+
+server.use(express.json());
+
+server.use("/books", bookRouter);
 
 export default server;
