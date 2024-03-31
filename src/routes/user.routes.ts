@@ -4,7 +4,7 @@ import loginUser from "../handlers/users/loginUser.handlers";
 
 const router = Router();
 
-router.post("/register", newUser);
+router.post("api/auth/register", newUser);
 router.post("/login", loginUser);
 
 export default router;

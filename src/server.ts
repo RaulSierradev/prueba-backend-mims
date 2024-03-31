@@ -36,7 +36,7 @@ server.use(morgan("dev"));
 server.use(express.json());
 
 server.use("/api/books", bookRouter);
-server.use("/api/auth", userRouter);
+server.use("/", userRouter);
 server.use("/api/loans", loanRoutes);
 
 export default server;

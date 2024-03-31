@@ -4,7 +4,8 @@
   "description": "Prueba de backend para mims tech corps",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc",
+    "test": "jest",
     "dev": "nodemon --exec ts-node src/index.ts"
   },
   "repository": {
@@ -19,8 +20,12 @@
   "homepage": "https://github.com/RaulSierradev/prueba-backend-mims#readme",
   "devDependencies": {
     "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0",
     "morgan": "^1.10.0",
     "nodemon": "^3.1.0",
+    "supertest": "^6.3.4",
+    "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.3"
   },
