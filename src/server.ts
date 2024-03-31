@@ -4,7 +4,8 @@ import morgan from "morgan";
 
 import db from "./config/bd";
 import bookRouter from "./routes/book.routes";
-import userRouter from './routes/user.routes'
+import userRouter from "./routes/user.routes";
+import loanRoutes from "./routes/loan.routes";
 
 async function connectDB() {
   try {
@@ -35,6 +36,7 @@ server.use(morgan("dev"));
 server.use(express.json());
 
 server.use("/api/books", bookRouter);
-server.use("/api/auth", userRouter)
+server.use("/api/auth", userRouter);
+server.use("/api/loans", loanRoutes);
 
 export default server;

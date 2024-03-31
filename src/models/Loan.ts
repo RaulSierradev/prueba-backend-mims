@@ -3,22 +3,24 @@ import db from "../config/bd";
 
 interface LoanAttributes {
   id: string;
-  userId: string;
-  bookId: string;
   loanDate: Date;
-  returnDate: Date;
+  returnDate?: Date;
+  userId?: string;
+  bookId?: string;
 }
 
 class Loan extends Model<LoanAttributes> implements LoanAttributes {
   public id!: string;
-  public userId!: string;
-  public bookId!: string;
   public loanDate!: Date;
-  public returnDate!: Date;
+  public returnDate?: Date;
+  public userId?: string;
+  public bookId?: string;
 
-  static rawAttributes: any;
+  static associate(models: any) {
+    Loan.belongsTo(models.User, { foreignKey: "userId" });
+    Loan.belongsTo(models.Book, { foreignKey: "bookId" });
+  }
 
-  // Aquí se define el modelo
   static initialize() {
     this.init(
       {
@@ -28,21 +30,12 @@ class Loan extends Model<LoanAttributes> implements LoanAttributes {
           allowNull: false,
           primaryKey: true,
         },
-        userId: {
-          type: DataTypes.STRING,
-          allowNull: false,
-        },
-        bookId: {
-          type: DataTypes.STRING,
-          allowNull: false,
-        },
         loanDate: {
           type: DataTypes.DATEONLY,
           allowNull: false,
         },
         returnDate: {
           type: DataTypes.DATEONLY,
-          allowNull: false,
         },
       },
       {
@@ -54,7 +47,6 @@ class Loan extends Model<LoanAttributes> implements LoanAttributes {
   }
 }
 
-// Inicializa el modelo
 Loan.initialize();
 
 export default Loan;
