@@ -33,6 +33,6 @@ server.use(morgan("dev"));
 
 server.use(express.json());
 
-server.use("/books", bookRouter);
+server.use("/api/books", bookRouter);
 
 export default server;

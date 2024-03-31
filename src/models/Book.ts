@@ -18,7 +18,7 @@ const Book = db.define("books", {
     allowNull: false,
   },
   publicationYear: {
-    type: DataTypes.STRING,
+    type: DataTypes.DATEONLY,
     allowNull: false,
   },
 });
