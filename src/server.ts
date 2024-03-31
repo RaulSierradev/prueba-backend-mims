@@ -6,6 +6,7 @@ import db from "./config/bd";
 import bookRouter from "./routes/book.routes";
 import userRouter from "./routes/user.routes";
 import loanRoutes from "./routes/loan.routes";
+import paymentRoutes from "./routes/payment.routes";
 
 async function connectDB() {
   try {
@@ -36,7 +37,8 @@ server.use(morgan("dev"));
 server.use(express.json());
 
 server.use("/api/books", bookRouter);
-server.use("/", userRouter);
+server.use("/api/auth", userRouter);
 server.use("/api/loans", loanRoutes);
+server.use("/api/purchase", paymentRoutes);
 
 export default server;
